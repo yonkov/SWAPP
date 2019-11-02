@@ -20,7 +20,9 @@ export default function Login() {
     onCompleted: ({ signIn: token}) => {
         
       localStorage.setItem('token', token.token);
+      localStorage.setItem('isAuthed', true);
       client.writeData({ data: { authenticated: true } });
+      
     },
   });
 

@@ -2,12 +2,13 @@
   display: block;
   margin: 0 auto;
   width: 100%;
+  background: #f4f4f4;
   }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 90%;
 }
 
 .blog-entry {
@@ -17,7 +18,7 @@
 }
 
 .content{
-  width: 33%;
+  width: 30%;
   margin: 15px 0;
   display: block;
   margin: 0 auto;
@@ -37,6 +38,7 @@
 
 .blog-content-body {
   min-height: 93px;
+  background: #fff;
 }
 
 .blog-entry .blog-content-body {
@@ -51,4 +53,11 @@
 .blog-entry h2 {
   font-size: 18px;
   line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+}
+.episode-thumbnail{
+  width:500px;
 }

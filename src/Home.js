@@ -16,7 +16,8 @@ const Home = () => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
   return (
     <Box width={[400, 600, 1000]} mx="auto">
-        <div class='container'>
+        <div className='container'>
+          
             {data.authenticated ? <Pages /> : <Login />}
         </div>
     </Box>
