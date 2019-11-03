@@ -11,7 +11,6 @@ const LOG_IN = gql`
     }
   }
 `;
-
 export default function Login() {
   const client = useApolloClient();
   
@@ -20,14 +19,15 @@ export default function Login() {
     onCompleted: ({ signIn: token}) => {
         
       localStorage.setItem('token', token.token);
-      localStorage.setItem('isAuthed', true);
-      client.writeData({ data: { authenticated: true } });
-      
+      client.writeData({ data: { authenticated: true } });      
     },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return console.log(error);
+  if (loading) return <center>Loading...</center>;
+  if (error) return (<p>{error.graphQLErrors.map(({ message }, i) => (
+    <span key={i}>{message}</span>
+  ))}
+  </p>)
 
   return <LoginForm login={login} />;
 }

@@ -3,8 +3,7 @@ import React from 'react';
 
 const EpisodePreview = ({...props}) => {
     const episode = {...props};
-    const characters = episode.people.edges;
-    console.log(characters);
+    const characters = episode.people.edges.slice(5);
     
     return(
         <div className="card" style={{'width': '100%', 'marginTop': '10px'}}>

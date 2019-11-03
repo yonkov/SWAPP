@@ -6,8 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import Home from './Home';
+import Navigation from './components/Navigation';
 import authLink from './client/auth';
 import {typeDefs} from './client/local'
+
 
 const cache = new InMemoryCache();
 
@@ -21,17 +23,22 @@ const client = new ApolloClient({
   typeDefs
 });
 
+const isAuthed = !!localStorage.getItem('token');
+
+
 cache.writeData({
   data: {
-    authenticated: !!localStorage.getItem('token'),
+    authenticated: isAuthed,
   },
 });
+
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
       <div className="App">
+        <Navigation isAuthed={isAuthed}/>
         <Home/>
       </div>
       </BrowserRouter>

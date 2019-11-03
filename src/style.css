@@ -1,3 +1,7 @@
+* {
+  overflow:auto;
+  }
+
 #root {
   display: block;
   margin: 0 auto;
@@ -60,4 +64,22 @@ a {
 }
 .episode-thumbnail{
   width:500px;
+}
+
+/* Menu items */
+@media (min-width:792px){
+  .menu{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  .menu li{
+    padding: 10px
+  }
+}
+/* Hide menu toggle button on desktop and tablet */
+@media (min-width:792px){
+  .navbar-toggler{
+    display:none;
+  }
 }

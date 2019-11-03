@@ -1,10 +1,12 @@
 import React from 'react';
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import { useParams } from 'react-router-dom';
+import { useParams, withRouter } from 'react-router-dom';
 import { Box } from 'rebass';
-import { useQuery, useMutation, useSubscription } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import EpisodePreview from '../components/EpisodePreview';
+import { onError } from "apollo-link-error";
+import Login from '../Login';
 
 const episodeQuery = gql`
   query EpisodeQuery($episodeId: ID!) {
@@ -42,7 +44,8 @@ const Episode = () => {
     })
 
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error on getting episode with id: {episodeId}</p>;
+    if (error) return (localStorage.clear())
+
 
     const {...episode} = data.episode;
     

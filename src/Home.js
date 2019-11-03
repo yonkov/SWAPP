@@ -14,11 +14,11 @@ export const AUTHENTICATED_QUERY = gql`
 
 const Home = () => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
+  
   return (
     <Box width={[400, 600, 1000]} mx="auto">
         <div className='container'>
-          
-            {data.authenticated ? <Pages /> : <Login />}
+            {data.authenticated ? <Pages/> : <Login />}
         </div>
     </Box>
   );
