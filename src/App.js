@@ -33,12 +33,13 @@ cache.writeData({
 });
 
 
+
+
 function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
       <div className="App">
-        <Navigation isAuthed={isAuthed}/>
         <Home/>
       </div>
       </BrowserRouter>

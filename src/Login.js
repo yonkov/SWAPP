@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
@@ -11,7 +12,7 @@ const LOG_IN = gql`
     }
   }
 `;
-export default function Login() {
+function Login(props) {
   const client = useApolloClient();
   
   
@@ -19,7 +20,8 @@ export default function Login() {
     onCompleted: ({ signIn: token}) => {
         
       localStorage.setItem('token', token.token);
-      client.writeData({ data: { authenticated: true } });      
+      client.writeData({ data: { authenticated: true } }); 
+      props.history.push('/episodes');     
     },
   });
 
@@ -31,3 +33,5 @@ export default function Login() {
 
   return <LoginForm login={login} />;
 }
+
+export default withRouter(Login);

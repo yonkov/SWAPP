@@ -16,14 +16,13 @@ class Navigation extends Component {
   }
   
   render() {
-    const isAuthed = !!localStorage.getItem('token');
     
     const collapsed = this.state.collapsed;
     const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
     const classTwo = collapsed ? 'navbar-toggler collapsed' : 'navbar-toggler';
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light nav">
-        {isAuthed &&  <div className="menu-container">
+        <div className="menu-container">
           <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon">MENU</span>
           </button>
@@ -40,7 +39,7 @@ class Navigation extends Component {
               </li>
             </ul>
           </div>
-        </div>}
+        </div>
       </nav>
     );
   }
