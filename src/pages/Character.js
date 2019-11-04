@@ -22,6 +22,8 @@ const episodeQuery = gql`
         starships{
             edges{
                 node{
+                    id
+                    image
                     name
                 }
             }

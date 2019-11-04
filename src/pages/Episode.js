@@ -5,8 +5,6 @@ import { useParams, withRouter } from 'react-router-dom';
 import { Box } from 'rebass';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import EpisodePreview from '../components/EpisodePreview';
-import { onError } from "apollo-link-error";
-import Login from '../Login';
 
 const episodeQuery = gql`
   query EpisodeQuery($episodeId: ID!) {
