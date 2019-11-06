@@ -13,12 +13,12 @@ export const AUTHENTICATED_QUERY = gql`
   }
 `;
 
-const Home = () => {
+const Home = (props) => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
-
+  
   return (
     <Box width={[400, 600, 1000]} mx="auto">
-      {data.authenticated && <Navigation/>}
+      {data.authenticated && <Navigation toggleTheme = {props.toggleTheme}/>}
         <div className='container'>
             <Pages/>
         </div>

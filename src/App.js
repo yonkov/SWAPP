@@ -44,14 +44,16 @@ function App() {
       setTheme('light');
     }
   }
+
+  console.log(toggleTheme);
+  
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
       <div className="App">
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
-      <button onClick={toggleTheme}>Toggle theme</button>
-        <Home/>
+        <Home toggleTheme = {{toggleTheme}}/>
       </ThemeProvider>
       </div>
       </BrowserRouter>

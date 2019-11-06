@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '.././theme';
+import { GlobalStyles } from '.././global';
 
 class Navigation extends Component {
   constructor(props) {
     super(props);
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      collapsed: true,
+      collapsed: true
     };
   }
   toggleNavbar() {
@@ -29,7 +32,7 @@ class Navigation extends Component {
           <div className={`${classOne}`} id="navbarResponsive">
             <ul className="menu">
               <li className="menu-item">
-                <NavLink exact className="menu-link" to="/">SWAPP</NavLink>
+                <NavLink exact className="menu-link" onClick={this.props.toggleTheme.toggleTheme} to="#" >SWAPP</NavLink>
               </li>
               <li className="menu-item">
                 <NavLink className="menu-link" to="/episodes">Episodes</NavLink>
