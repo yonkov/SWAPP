@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import gql from 'graphql-tag.macro';
 import Login from '../Login';
 export const AUTHENTICATED_QUERY = gql`
@@ -11,8 +11,7 @@ export const AUTHENTICATED_QUERY = gql`
 
 const PrivateRoute = (props) => {
     const { data } = useQuery(AUTHENTICATED_QUERY);
-    console.log(data.authenticated);
-    
+
     return(
         data.authenticated ? props.children : 
         <div>
@@ -23,4 +22,3 @@ const PrivateRoute = (props) => {
 }
 
 export default PrivateRoute
-

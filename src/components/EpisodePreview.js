@@ -31,7 +31,7 @@ const EpisodePreview = ({...props}) => {
                         </Link>
                 </li>)}
             </ul>
-            <button className="card-button">Load more ...</button>
+            {/* <button className="card-button">Load more ...</button> */}
         </div>
     )
 

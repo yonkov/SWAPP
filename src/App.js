@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "react-apollo";
@@ -6,10 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import Home from './Home';
-import Navigation from './components/Navigation';
 import authLink from './client/auth';
 import {typeDefs} from './client/local'
-
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from './theme';
+import { GlobalStyles } from './global';
 
 const cache = new InMemoryCache();
 
@@ -33,14 +34,25 @@ cache.writeData({
 });
 
 
-
-
 function App() {
+
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  }
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
       <div className="App">
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <button onClick={toggleTheme}>Toggle theme</button>
         <Home/>
+      </ThemeProvider>
       </div>
       </BrowserRouter>
     </ApolloProvider>

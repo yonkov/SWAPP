@@ -1,15 +1,15 @@
 import React from 'react';
 import { Query } from "react-apollo";
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Heading, Link, Button } from 'rebass';
-
+import {Link} from 'rebass';
 import gql from "graphql-tag";
+import RedirectToLogin from '../components/RedirectToLogin';
 
 const Episodes = () => (
 
   <Query query={gql`
       {
-        allEpisodes (first:6) {
+        allEpisodes (first:8) {
           totalCount
           edges{
             node{
@@ -25,7 +25,9 @@ const Episodes = () => (
   >
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>;
-      if (error) return (localStorage.clear())
+      if (error) return (
+        <RedirectToLogin/>
+    )
 
       return data.allEpisodes.edges.map(({ node }) => (
         <div key={node.episodeId} className="content">
