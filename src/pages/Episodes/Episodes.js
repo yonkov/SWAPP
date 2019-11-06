@@ -3,7 +3,9 @@ import { Query } from "react-apollo";
 import { Link as RouterLink } from 'react-router-dom';
 import {Link} from 'rebass';
 import gql from "graphql-tag";
-import RedirectToLogin from '../components/RedirectToLogin';
+import RedirectToLogin from '../../components/RedirectToLogin';
+import Loading from '../../components/LoginForm/Loading';
+import './Episodes.css'
 
 const Episodes = () => (
 
@@ -24,10 +26,8 @@ const Episodes = () => (
     `}
   >
     {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return (
-        <RedirectToLogin/>
-    )
+      if (loading) return <Loading/>;
+      if (error) return <RedirectToLogin/>;
 
       return data.allEpisodes.edges.map(({ node }) => (
         <div key={node.episodeId} className="content">
@@ -36,7 +36,7 @@ const Episodes = () => (
             variant="nav"
             key={node.episodeId}
             to={`/episodes/${node.episodeId}`}>
-            <img src={node.image} className="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt='starwars-episode-thumbnail' />
+            <img src={node.image} alt='starwars-episode-thumbnail' />
             <div className="blog-content-body">
               <h2 className="header">{node.title}</h2>
               <p className="description">{node.openingCrawl.substring(0, 221) + "..."}</p>

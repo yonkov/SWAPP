@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "react-apollo";
@@ -11,6 +11,7 @@ import {typeDefs} from './client/local'
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
 import { GlobalStyles } from './global';
+import { useDarkMode } from './components/useDarkMode';
 
 const cache = new InMemoryCache();
 
@@ -36,17 +37,8 @@ cache.writeData({
 
 function App() {
 
-  const [theme, setTheme] = useState('light');
-  const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  }
+  const [theme, toggleTheme] = useDarkMode();
 
-  console.log(toggleTheme);
-  
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>

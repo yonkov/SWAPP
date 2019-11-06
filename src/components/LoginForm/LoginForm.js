@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Button, Card } from 'rebass';
 import { Input } from '@rebass/forms';
+import './LoginForm.css'
 
 export default class LoginForm extends React.Component {
   state = { email: '', password:'' };
@@ -16,12 +17,14 @@ export default class LoginForm extends React.Component {
 
   render() {
     return (
-      <Card
+      <section className="login-form">
+        <h1>SWAPP</h1>
+        <Card
         width={[400]}
         as="form"
         onSubmit={this.handleSubmit}
         mx="auto"
-        my={4}
+        my={3}
       >
         <Box p={1}>
           <Box mb={3}>
@@ -29,20 +32,24 @@ export default class LoginForm extends React.Component {
               name="email"
               value={this.state.email}
               onChange={this.onChange}
-              placeholder="email"
+              placeholder="Email"
+              my={3}
             />
             <Input
                 value={this.state.password}
                 onChange={e => this.setState({ password: e.target.value })}
                 type="password"
-                placeholder="Choose a safe password"
+                placeholder="Enter your password"
           />
           </Box>
-          <Box px={2} ml="auto">
-            <Button type="submit">Log In</Button>
+          <Box px={5} ml="auto">
+            <Button type="submit" >Login</Button>
           </Box>
         </Box>
       </Card>
+      </section>
+      
+      
     );
   }
 }

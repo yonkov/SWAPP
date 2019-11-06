@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from '.././theme';
-import { GlobalStyles } from '.././global';
 
 class Navigation extends Component {
   constructor(props) {

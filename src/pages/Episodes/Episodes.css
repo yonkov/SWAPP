@@ -1,0 +1,28 @@
+@media (min-width:1200px){
+    .blog-entry img {
+      width: 350px;
+  }
+  }
+  
+  .blog-entry img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
+  .blog-content-body {
+    min-height: 93px;
+  }
+  
+  .blog-entry .blog-content-body {
+    padding: 20px 12px 10px;
+  }
+  
+  .blog-entry h2 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .blog-entry:hover {
+    opacity: .6;
+    top: -1px;
+}

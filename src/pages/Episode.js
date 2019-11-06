@@ -1,10 +1,11 @@
 import React from 'react';
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
-import { useParams, withRouter } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import { Box, Button } from 'rebass';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import EpisodePreview from '../components/EpisodePreview';
+import { useQuery} from '@apollo/react-hooks';
+import EpisodePreview from '../components/EpisodePreview/EpisodePreview';
+import Loading from '../components/LoginForm/Loading';
+import RedirectToLogin from '../components/RedirectToLogin';
 
 const episodeQuery = gql`
   query EpisodeQuery($episodeId: ID!, $first: Int, $after: String) {
@@ -45,15 +46,11 @@ const Episode = () => {
         variables: {episodeId, first}
     })
 
-    if (loading) return <p>Loading...</p>;
-    if (error)return(
-      localStorage.clear()
-      )
-    
+    if (loading) return <Loading/>;
+    if (error)return <RedirectToLogin/>
 
 
     const {...episode} = data.episode;
-    const {...allPeople} = episode.people.edges;
     let {hasNextPage, endCursor} = episode.people.pageInfo;
     
 
@@ -81,7 +78,7 @@ const Episode = () => {
     
     return(
       
-        <Box width={[400, 600]} mx="auto">
+        <Box width={[400, 600, 900]} mx="auto">
             <EpisodePreview  {...episode} my={2} />
             {hasNextPage && (
         <Box m={3} textAlign="center">

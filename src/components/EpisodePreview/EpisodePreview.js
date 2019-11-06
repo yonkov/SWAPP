@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link } from 'rebass';
+import './EpisodePreview.css'
 
 const EpisodePreview = ({...props}) => {
     const episode = {...props};
@@ -20,18 +21,17 @@ const EpisodePreview = ({...props}) => {
 
             <ul key={characters.id} className="characters">
                 {characters.map(character => 
-                <li key={character.node.id}>
-                    <Link className=""
+                <li key={character.node.id} className="character">
+                    <Link className="character-entry"
                             as={RouterLink}
                             variant="nav"
                             key={character.node.id}
                             to={`/characters/${character.node.id}`}>
                             <img src={character.node.image} className="starship-thumbnail" alt="character-poster" />
-                            {character.node.name}
+                            <div className="character-content-body"><h2 className="header">{character.node.name}</h2></div>
                         </Link>
                 </li>)}
             </ul>
-            {/* <button className="card-button">Load more ...</button> */}
         </div>
     )
 

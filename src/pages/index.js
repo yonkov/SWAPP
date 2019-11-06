@@ -1,12 +1,11 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Episode from './Episode';
-import Episodes from './Episodes';
-import Characters from './Characters'
+import Episodes from './Episodes/Episodes';
+import Characters from './Characters/Characters'
 import Character from './Character';
 import Starship from './Starship'
 import PrivateRoute from '../components/PrivateRoute';
-import gql from 'graphql-tag.macro';
 
 
 const Pages = () => {

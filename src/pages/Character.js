@@ -1,10 +1,11 @@
 import React from 'react';
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
 import { useParams } from 'react-router-dom';
 import { Box } from 'rebass';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import CharacterPreview from '../components/CharacterPreview';
+import { useQuery} from '@apollo/react-hooks';
+import CharacterPreview from '../components/CharacterPreview/CharacterPreview';
+import Loading from '../components/LoginForm/Loading';
+import RedirectToLogin from '../components/RedirectToLogin';
 
 const episodeQuery = gql`
   query EpisodeQuery($characterId: ID!) {
@@ -38,17 +39,17 @@ const Character = () => {
     let { characterId } = useParams()
      
        
-    const {data, loading, error, refetch} = useQuery(episodeQuery, {
+    const {data, loading, error} = useQuery(episodeQuery, {
         variables: {characterId}
     })
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return (localStorage.clear())
+    if (loading) return <Loading/>;
+    if (error)return <RedirectToLogin/>
 
     const {...person} = data.person;
     
     return(
-        <Box width={[400, 600]} mx="auto">
+        <Box width={[400, 600, 1000]} mx="auto">
             <CharacterPreview  {...person} my={2} />
         </Box>
     )

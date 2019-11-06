@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Open-source React Web Application that explores some interesting Star Wars data from GraphQL server.
 
-## Available Scripts
+## Data
 
-In the project directory, you can run:
+### 1. Data is fetched from GraphQL Server via Apollo client
 
-### `yarn start`
+### 2. There is only one user available:
+a. Email: demo@st6.io
+b. Password: demo1234
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 3. Authenticating GraphQL queries
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Authenticating the queries happens by adding Authorization header to the request with value Bearer <token>
 
-### `yarn test`
+## Routes
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Routes are implemented via react-router-dom.
 
-### `yarn build`
+### 1. Routes that don't require authentication :/login
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If the user is not registered, he is always redirected to the login page.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### 2. Routes that require authentication: :/episodes, :/episodes/id, :/characters, :/characters/id
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## UI/UX
+### 1. Clicking on the SWAPP logo changes the theme from dark to light and vice versa.
+The selected theme is stored across sessions, i.e. if the user opted for
+the dark theme and closes the window, once she reopens it, the dark theme
+is be applied.
+### 2. If there is some kind of an error during login, an appropriate info message is shown on the frontend (‘Invalid Credentials’)
+### 3. The app is fully responsive. Without the use of any frameworks
+### 4. Pagination is applied wherever applicable (List characters page and in Single episode page)

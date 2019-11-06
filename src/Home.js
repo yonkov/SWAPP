@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag.macro';
-import { Box } from 'rebass';
-import { Redirect } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Pages from './pages';
-import Login from './Login';
 
 export const AUTHENTICATED_QUERY = gql`
   query IsAuthenticated {
@@ -15,14 +12,16 @@ export const AUTHENTICATED_QUERY = gql`
 
 const Home = (props) => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
-  
+
   return (
-    <Box width={[400, 600, 1000]} mx="auto">
-      {data.authenticated && <Navigation toggleTheme = {props.toggleTheme}/>}
+    <Fragment>
+      {data.authenticated && <Navigation toggleTheme={props.toggleTheme} />}
+      <div className="site-wrapper">
         <div className='container'>
-            <Pages/>
+          <Pages />
         </div>
-    </Box>
+      </div>
+    </Fragment>
   );
 };
 

@@ -3,7 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import LoginForm from './components/LoginForm';
+import LoginForm from './components/LoginForm/LoginForm';
+import Loading from './components/LoginForm/Loading';
 
 const LOG_IN = gql`
   mutation signIn($email: String!, $password: String!) {
@@ -20,13 +21,17 @@ function Login(props) {
     onCompleted: ({ signIn: token}) => {
         
       localStorage.setItem('token', token.token);
+      
+      if (!localStorage.getItem('theme')) { 
+        localStorage.setItem('theme', 'light');
+      }
       client.writeData({ data: { authenticated: true } }); 
       props.history.push('/episodes');     
     },
   });
 
-  if (loading) return <center>Loading...</center>;
-  if (error) return (<p>{error.graphQLErrors.map(({ message }, i) => (
+  if (loading) return <Loading/>;
+  if (error) return (<p className="center-text">{error.graphQLErrors.map(({ message }, i) => (
     <span key={i}>{message}</span>
   ))}
   </p>)

@@ -1,9 +1,8 @@
 import React from 'react';
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
-import { useParams, withRouter } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import { Box } from 'rebass';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery} from '@apollo/react-hooks';
 import StarshipPreview from '../components/StarshipPreview';
 
 const starshipQuery = gql`
@@ -25,7 +24,7 @@ const starshipQuery = gql`
 const Starship = () => {
     let { starshipId } = useParams() ;
      
-    const {data, loading, error, refetch} = useQuery(starshipQuery, {
+    const {data, loading, error} = useQuery(starshipQuery, {
         variables: {starshipId}
     })
 

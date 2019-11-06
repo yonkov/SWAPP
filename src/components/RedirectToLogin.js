@@ -5,7 +5,6 @@ import Login from '../Login';
 
 const RedirectToLogin = (props) => {
     localStorage.clear();
-    window.location.reload();
     return(
         <div>
             <Login/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Redirect} from 'react-router-dom';
 import gql from 'graphql-tag.macro';
@@ -14,10 +14,10 @@ const PrivateRoute = (props) => {
 
     return(
         data.authenticated ? props.children : 
-        <div>
+        <Fragment>
             <Login/>
             <Redirect to={'/login'} />
-        </div>
+        </Fragment>
     )
 }
 
