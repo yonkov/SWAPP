@@ -5,12 +5,11 @@ Open-source React Web Application that explores some interesting Star Wars data 
 ### 1. Data is fetched from GraphQL Server via Apollo client
 
 ### 2. There is only one user available:
-a. Email: demo@st6.io
-b. Password: demo1234
+Email: demo@st6.io Password: demo1234
 
 ### 3. Authenticating GraphQL queries
 
-Authenticating the queries happens by adding Authorization header to the request with value Bearer <token>
+Authenticating the queries happens by adding Authorization header (jwt token) to the request with value Bearer <token>
 
 ## Routes
 
