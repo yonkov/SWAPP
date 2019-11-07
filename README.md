@@ -1,4 +1,4 @@
-Open-source React Web Application that explores some interesting Star Wars data from GraphQL server.
+Open-source React Web Application that explores some interesting Star Wars data from GraphQL server. Live url: https://starwars-app-bg.netlify.com/
 
 ## Data
 
