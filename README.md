@@ -2,10 +2,16 @@ Open-source React Web Application that explores some interesting Star Wars data 
 
 ## Data
 
-### 1. Data is fetched from GraphQL Server via Apollo client
+### 1. API
 
-### 2. There is only one user available:
-Email: demo@st6.io Password: demo1234
+Data is fetched from GraphQL Server via Apollo client
+
+### 2. Authorisation
+
+There is only one user available with the following credentials:
+
++ Email: demo@st6.io 
++ Password: demo1234
 
 ### 3. Authenticating GraphQL queries
 
