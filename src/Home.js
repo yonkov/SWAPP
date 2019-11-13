@@ -12,13 +12,13 @@ export const AUTHENTICATED_QUERY = gql`
 
 const Home = (props) => {
   const { data } = useQuery(AUTHENTICATED_QUERY);
-
+  
   return (
     <Fragment>
       {data.authenticated && <Navigation toggleTheme={props.toggleTheme} />}
       <div className="site-wrapper">
         <div className='container'>
-          <Pages />
+          <Pages toggleTheme={props.toggleTheme} />
         </div>
       </div>
     </Fragment>

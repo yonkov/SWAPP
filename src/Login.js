@@ -36,7 +36,7 @@ function Login(props) {
   ))}
   </p>)
 
-  return <LoginForm login={login} />;
+  return <LoginForm login={login} toggleTheme={props.toggleTheme} />;
 }
 
 export default withRouter(Login);

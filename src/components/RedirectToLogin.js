@@ -1,17 +1,13 @@
 import React from 'react';
-import { Redirect} from 'react-router-dom';
+import { Redirect, useHistory} from 'react-router-dom';
 
 import Login from '../Login';
 
 const RedirectToLogin = (props) => {
-    localStorage.clear();
-    return(
-        <div>
-            <Login/>
-            <Redirect to={'/login'} />
-            
-        </div>
-    )
+    localStorage.setItem('token', '');
+    const history = useHistory();
+    history.push('/login');
+    window.location.reload();
 }
 
 export default RedirectToLogin

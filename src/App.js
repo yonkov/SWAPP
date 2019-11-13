@@ -12,7 +12,7 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
 import { GlobalStyles } from './global';
 import { useDarkMode } from './components/useDarkMode';
-
+import {isAuthed} from './components/auth'
 const cache = new InMemoryCache();
 
 const httpLink = createHttpLink({
@@ -25,8 +25,6 @@ const client = new ApolloClient({
   typeDefs
 });
 
-const isAuthed = !!localStorage.getItem('token');
-
 
 cache.writeData({
   data: {
@@ -38,7 +36,7 @@ cache.writeData({
 function App() {
 
   const [theme, toggleTheme] = useDarkMode();
-
+  
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>

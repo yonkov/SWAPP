@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from "react-apollo";
+import { useQuery } from '@apollo/react-hooks';
 import { Link as RouterLink } from 'react-router-dom';
 import {Link} from 'rebass';
 import gql from "graphql-tag";
@@ -7,27 +7,31 @@ import RedirectToLogin from '../../components/RedirectToLogin';
 import Loading from '../../components/LoginForm/Loading';
 import './Episodes.css'
 
-const Episodes = () => (
-
-  <Query query={gql`
-      {
-        allEpisodes (first:8) {
-          totalCount
-          edges{
-            node{
-              episodeId
-              title
-              image
-              openingCrawl
-            }
-          }
+const episodesQuery = gql`
+  query EpisodesQuery($first: Int!) {
+    allEpisodes (first: $first) {
+      totalCount
+      edges{
+        node{
+          episodeId
+          title
+          image
+          openingCrawl
         }
       }
-    `}
-  >
-    {({ loading, error, data }) => {
+    }
+      
+    }
+`;
+const Episodes = () => {
+  let first = 8;
+  const { data, loading, error } = useQuery(episodesQuery, {
+    variables: { first }
+  })
+
       if (loading) return <Loading/>;
-      if (error) return <RedirectToLogin/>;
+      if (error)return <RedirectToLogin/>
+      
 
       return data.allEpisodes.edges.map(({ node }) => (
         <div key={node.episodeId} className="content">
@@ -43,8 +47,6 @@ const Episodes = () => (
             </div>
           </Link>
         </div>
-      ));
-    }}
-  </Query>
-);
+  ))
+};
 export default Episodes;

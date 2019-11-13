@@ -8,11 +8,11 @@ import Starship from './Starship'
 import PrivateRoute from '../components/PrivateRoute';
 
 
-const Pages = () => {
+const Pages = (props) => {
   
   return (
     <Switch>
-      <PrivateRoute>
+      <PrivateRoute toggleTheme={props.toggleTheme}>
         <Route path="/episodes/:episodeId" component={Episode} />
         <Route path="/characters/:characterId" component={Character} />
         <Route path="/starships/:starshipId" component={Starship} />

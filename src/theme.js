@@ -5,7 +5,8 @@ export const lightTheme = {
     headings: '#4BD5EE',
     toggleBorder: '#FFF',
     gradient: 'linear-gradient(#39598A, #79D7ED)',
-    link: '#333'
+    link: '#333',
+    login: '#fff'
   }
   
   export const darkTheme = {
@@ -15,5 +16,6 @@ export const lightTheme = {
     headings: '#FFE300',
     toggleBorder: '#6B8096',
     gradient: 'linear-gradient(#091236, #1E215D)',
-    link: '#f5f5f5'
+    link: '#f5f5f5',
+    login: '#666',
   }

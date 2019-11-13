@@ -3,9 +3,13 @@
     flex-wrap: wrap;
     padding-top: 2em;
 }
+.header, .card-title{
+    font-family: SFDistantGalaxy;
+    word-wrap: break-word;
+}
 
 .character{
-    width: 30%;
+    width: 33%;
     margin: 15px 0;
     padding: 5px;
 }

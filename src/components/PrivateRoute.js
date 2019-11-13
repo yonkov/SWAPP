@@ -15,7 +15,7 @@ const PrivateRoute = (props) => {
     return(
         data.authenticated ? props.children : 
         <Fragment>
-            <Login/>
+            <Login toggleTheme={props.toggleTheme}/>
             <Redirect to={'/login'} />
         </Fragment>
     )

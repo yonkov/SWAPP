@@ -34,4 +34,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.link};
     transition: all 0.3s linear;
   }
+  .login-form form {
+    background-color: ${({ theme }) => theme.login};
+  }
   `;

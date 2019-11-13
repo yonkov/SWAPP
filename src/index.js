@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import "./style.css";
+import './fonts/SfDistantGalaxy-0l3d.ttf'
+import './fonts/SFDistantGalaxy.ttf'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
