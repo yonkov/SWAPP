@@ -46,3 +46,7 @@ If there is some kind of an error during login, an appropriate info message is s
 The app is fully responsive. Without the use of any frameworks. Custom mobile menu toggle functionality is implemented
 ### 4. Pagination 
 The app has pagination that loads more data wherever applicable (List characters page and in Single episode page)
+
+## Testing
+
+The components are unit-tested with jest and enzyme.
