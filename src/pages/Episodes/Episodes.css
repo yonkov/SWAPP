@@ -22,8 +22,32 @@
     line-height: 1.5;
     font-family: SFDistantGalaxy;
   }
-
+  .blog-entry:hover img {
+    opacity: .7;
+    filter: brightness(65%);
+}
   .blog-entry:hover {
-    opacity: .6;
     top: -1px;
+}
+
+.blog-entry::before {
+  font-family: FontAwesome;
+  content: '\f055';
+  color: #FFE300;
+  font-weight: 600;
+  font-size: 24px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  transition: all .9s;
+  z-index: -1;
+}
+
+.blog-entry:hover::before {
+  top: 25%;
+  text-align: center;
+  z-index: 10;
 }

@@ -5,6 +5,7 @@ import { useQuery} from '@apollo/react-hooks';
 import StarshipPreview from '../components/StarshipPreview/StarshipPreview';
 import {starshipQuery} from '../client/queries/starshipQuery'
 import RedirectToLogin from '../components/RedirectToLogin/RedirectToLogin';
+import Loading from '../components/Loading/Loading';
 
 const Starship = () => {
     let { starshipId } = useParams() ;
@@ -13,7 +14,7 @@ const Starship = () => {
         variables: {starshipId}
     })
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading/>;
     if (error) return <RedirectToLogin/>
 
 
