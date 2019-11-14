@@ -1,46 +1,17 @@
 import React from 'react';
-import gql from "graphql-tag";
 import { useParams} from 'react-router-dom';
 import { Box, Button } from 'rebass';
 import { useQuery} from '@apollo/react-hooks';
 import EpisodePreview from '../../components/EpisodePreview/EpisodePreview';
 import Loading from '../../components/Loading/Loading';
 import RedirectToLogin from '../../components/RedirectToLogin/RedirectToLogin';
-
-const episodeQuery = gql`
-  query EpisodeQuery($episodeId: ID!, $first: Int, $after: String) {
-    episode(id: $episodeId) {
-        id
-        title
-        image
-        director
-        releaseDate
-        openingCrawl
-        people(first: $first, after: $after) {
-          totalCount
-          pageInfo{
-            hasNextPage
-            endCursor
-          }
-          edges{
-            cursor
-            node{   
-              id
-              name
-              image
-            }
-          }
-        }
-      }
-    }
-`;
-
+import {episodeQuery} from '../../client/queries/episodeQuery'
 
 const Episode = () => {
     let { episodeId } = useParams() ;
      episodeId = 'films.'+episodeId;
      //number of characters to display on page load
-     let first = 5;
+     const first = 5;
     
     const {data, loading, error, fetchMore} = useQuery(episodeQuery, {
         variables: {episodeId, first}

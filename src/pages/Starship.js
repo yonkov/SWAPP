@@ -1,25 +1,10 @@
 import React from 'react';
-import gql from "graphql-tag";
 import { useParams} from 'react-router-dom';
 import { Box } from 'rebass';
 import { useQuery} from '@apollo/react-hooks';
 import StarshipPreview from '../components/StarshipPreview/StarshipPreview';
-
-const starshipQuery = gql`
-  query starshipQuery($starshipId: ID!) {
-    starship(id: $starshipId) {
-        id
-        name
-        image
-        cost
-        starshipClass
-        crew
-        maxAtmosphericSpeed
-        hyperdriveRating
-      }
-    }
-`;
-
+import {starshipQuery} from '../client/queries/starshipQuery'
+import RedirectToLogin from '../components/RedirectToLogin/RedirectToLogin';
 
 const Starship = () => {
     let { starshipId } = useParams() ;
@@ -29,7 +14,7 @@ const Starship = () => {
     })
 
     if (loading) return <p>Loading...</p>;
-    if (error) return (localStorage.clear())
+    if (error) return <RedirectToLogin/>
 
 
     const {...starship} = data.starship;

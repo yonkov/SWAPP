@@ -2,31 +2,12 @@ import React, {Fragment} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import './Characters.css'
-import gql from "graphql-tag";
 import RedirectToLogin from '../../components/RedirectToLogin/RedirectToLogin';
 import Loading from '../../components/Loading/Loading';
-
-const charactersQuery = gql`
-  query CharactersQuery($first: Int!, $after: String) {
-    allPeople(first: $first, after: $after){
-      edges{
-        node{
-          id
-          image
-          name
-        }
-      }
-      pageInfo{
-        hasNextPage
-        endCursor
-      }
-    }
-      
-    }
-`;
+import {charactersQuery} from '../../client/queries/charactersQuery'
 
 const Characters = () => {
-  let first = 12;
+  const first = 12;
 
   const { data, loading, error, fetchMore } = useQuery(charactersQuery, {
     variables: { first }

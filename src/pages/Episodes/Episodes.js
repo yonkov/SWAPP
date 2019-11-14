@@ -2,29 +2,13 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Link as RouterLink } from 'react-router-dom';
 import {Link} from 'rebass';
-import gql from "graphql-tag";
 import RedirectToLogin from '../../components/RedirectToLogin/RedirectToLogin';
 import Loading from '../../components/Loading/Loading';
 import './Episodes.css'
+import {episodesQuery} from '../../client/queries/episodesQuery'
 
-const episodesQuery = gql`
-  query EpisodesQuery($first: Int!) {
-    allEpisodes (first: $first) {
-      totalCount
-      edges{
-        node{
-          episodeId
-          title
-          image
-          openingCrawl
-        }
-      }
-    }
-      
-    }
-`;
 const Episodes = () => {
-  let first = 8;
+  const first = 8;
   const { data, loading, error } = useQuery(episodesQuery, {
     variables: { first }
   })

@@ -5,19 +5,13 @@ import gql from 'graphql-tag';
 
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Loading from '../../components/Loading/Loading';
+import {authQuery} from '../../client/queries/authQuery'
 
-const LOG_IN = gql`
-  mutation signIn($email: String!, $password: String!) {
-    signIn(email: $email, password: $password){
-        token
-    }
-  }
-`;
 function Login(props) {
   const client = useApolloClient();
   
   
-  const [login, { loading, error }] = useMutation(LOG_IN, {
+  const [login, { loading, error }] = useMutation(authQuery, {
     onCompleted: ({ signIn: token}) => {
         
       localStorage.setItem('token', token.token);
