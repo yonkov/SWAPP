@@ -3,9 +3,9 @@ import gql from "graphql-tag";
 import { useParams} from 'react-router-dom';
 import { Box, Button } from 'rebass';
 import { useQuery} from '@apollo/react-hooks';
-import EpisodePreview from '../components/EpisodePreview/EpisodePreview';
-import Loading from '../components/LoginForm/Loading';
-import RedirectToLogin from '../components/RedirectToLogin';
+import EpisodePreview from '../../components/EpisodePreview/EpisodePreview';
+import Loading from '../../components/Loading/Loading';
+import RedirectToLogin from '../../components/RedirectToLogin/RedirectToLogin';
 
 const episodeQuery = gql`
   query EpisodeQuery($episodeId: ID!, $first: Int, $after: String) {

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Episodes component Should compare the component with a snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="site-wrapper"
+  >
+    <div
+      className="container"
+    >
+      <section
+        className="login-form"
+      >
+        <h1
+          className="logo"
+          onClick={[Function]}
+        >
+          SWAPP
+        </h1>
+        <form
+          className="css-1rta19r"
+          onSubmit={[Function]}
+        >
+          <div
+            className="css-168ufxn"
+          >
+            <div
+              className="css-uq1pv2"
+            >
+              <input
+                className="css-1urscag"
+                name="email"
+                onChange={[Function]}
+                placeholder="Email"
+                type="text"
+                value=""
+              />
+              <input
+                className="css-4y926w"
+                onChange={[Function]}
+                placeholder="Enter your password"
+                type="password"
+                value=""
+              />
+            </div>
+            <div
+              className="css-lcap0w"
+            >
+              <button
+                className="css-vhv7r1"
+                type="submit"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+`;

@@ -3,8 +3,8 @@ import { useQuery } from '@apollo/react-hooks';
 import { Link as RouterLink } from 'react-router-dom';
 import {Link} from 'rebass';
 import gql from "graphql-tag";
-import RedirectToLogin from '../../components/RedirectToLogin';
-import Loading from '../../components/LoginForm/Loading';
+import RedirectToLogin from '../../components/RedirectToLogin/RedirectToLogin';
+import Loading from '../../components/Loading/Loading';
 import './Episodes.css'
 
 const episodesQuery = gql`

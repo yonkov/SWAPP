@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My second snapshot test Should compare the component with a snapshot 1`] = `
+<p
+  className="loading"
+>
+  Loading...
+</p>
+`;

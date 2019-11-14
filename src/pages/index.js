@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Episode from './Episode';
+import Episode from './Episode/Episode';
 import Episodes from './Episodes/Episodes';
 import Characters from './Characters/Characters'
-import Character from './Character';
+import Character from './Character/Character';
 import Starship from './Starship'
-import PrivateRoute from '../components/PrivateRoute';
+import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 
 
 const Pages = (props) => {

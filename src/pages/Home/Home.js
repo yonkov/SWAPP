@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag.macro';
-import Navigation from './components/Navigation';
-import Pages from './pages';
+import Navigation from '../../components/Navigation/Navigation';
+import Pages from '..';
 
 export const AUTHENTICATED_QUERY = gql`
   query IsAuthenticated {

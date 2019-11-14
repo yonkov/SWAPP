@@ -3,9 +3,9 @@ import gql from "graphql-tag";
 import { useParams } from 'react-router-dom';
 import { Box } from 'rebass';
 import { useQuery} from '@apollo/react-hooks';
-import CharacterPreview from '../components/CharacterPreview/CharacterPreview';
-import Loading from '../components/LoginForm/Loading';
-import RedirectToLogin from '../components/RedirectToLogin';
+import CharacterPreview from '../../components/CharacterPreview/CharacterPreview';
+import Loading from '../../components/Loading/Loading';
+import RedirectToLogin from '../../components/RedirectToLogin/RedirectToLogin';
 
 const episodeQuery = gql`
   query EpisodeQuery($characterId: ID!) {
@@ -36,9 +36,10 @@ const episodeQuery = gql`
 
 
 const Character = () => {
-    let { characterId } = useParams()
-     
-       
+    
+    
+    let { characterId } = useParams();
+    
     const {data, loading, error} = useQuery(episodeQuery, {
         variables: {characterId}
     })

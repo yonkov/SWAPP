@@ -5,21 +5,21 @@ import { ApolloProvider } from "react-apollo";
 import { BrowserRouter } from 'react-router-dom';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
-import Home from './Home';
+import Home from './pages/Home/Home';
 import authLink from './client/auth';
 import {typeDefs} from './client/local'
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
 import { GlobalStyles } from './global';
-import { useDarkMode } from './components/useDarkMode';
-import {isAuthed} from './components/auth'
+import { useDarkMode } from './useDarkMode';
+import {isAuthed} from './auth'
 const cache = new InMemoryCache();
 
 const httpLink = createHttpLink({
   uri: 'https://swapp.st6.io/graphql',
 });
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   cache,
   link: authLink.concat(httpLink),
   typeDefs

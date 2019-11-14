@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Redirect, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 class Navigation extends Component {
   constructor(props) {
     super(props);
@@ -34,14 +34,14 @@ class Navigation extends Component {
             <span className="navbar-toggler-icon">MENU</span>
           </button>
           <div className={`${classOne}`} id="navbarResponsive">
-            <div class="left-container">
+            <div className="left-container">
             <ul className="menu">
               <li className="menu-item">
                 <NavLink exact className="menu-link logo" onClick={this.props.toggleTheme.toggleTheme} to="#" >SWAPP</NavLink>
               </li>
             </ul>
             </div>
-            <div class='right-container'>
+            <div className='right-container'>
               <ul className="menu">
                 <li className="menu-item">
                   <NavLink className="menu-link" to="/episodes">Episodes</NavLink>

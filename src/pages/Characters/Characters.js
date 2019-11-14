@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import './Characters.css'
 import gql from "graphql-tag";
-import RedirectToLogin from '../../components/RedirectToLogin';
-import Loading from '../../components/LoginForm/Loading';
+import RedirectToLogin from '../../components/RedirectToLogin/RedirectToLogin';
+import Loading from '../../components/Loading/Loading';
 
 const charactersQuery = gql`
   query CharactersQuery($first: Int!, $after: String) {

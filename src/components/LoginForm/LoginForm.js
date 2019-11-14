@@ -19,7 +19,7 @@ export default class LoginForm extends React.Component {
     
     return (
       <section className="login-form">
-        <h1 class='logo' onClick={this.props.toggleTheme.toggleTheme}>SWAPP</h1>
+        <h1 className='logo' onClick={this.props.toggleTheme.toggleTheme}>SWAPP</h1>
         <Card
         width={[400]}
         as="form"

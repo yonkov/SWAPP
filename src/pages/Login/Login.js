@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { useApolloClient, useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import LoginForm from './components/LoginForm/LoginForm';
-import Loading from './components/LoginForm/Loading';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import Loading from '../../components/Loading/Loading';
 
 const LOG_IN = gql`
   mutation signIn($email: String!, $password: String!) {

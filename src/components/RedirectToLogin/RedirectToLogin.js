@@ -1,7 +1,5 @@
-import React from 'react';
-import { Redirect, useHistory} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 
-import Login from '../Login';
 
 const RedirectToLogin = (props) => {
     localStorage.setItem('token', '');

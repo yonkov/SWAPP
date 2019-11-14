@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import { useParams} from 'react-router-dom';
 import { Box } from 'rebass';
 import { useQuery} from '@apollo/react-hooks';
-import StarshipPreview from '../components/StarshipPreview';
+import StarshipPreview from '../components/StarshipPreview/StarshipPreview';
 
 const starshipQuery = gql`
   query starshipQuery($starshipId: ID!) {
