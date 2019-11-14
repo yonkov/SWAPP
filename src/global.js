@@ -37,4 +37,10 @@ export const GlobalStyles = createGlobalStyle`
   .login-form form {
     background-color: ${({ theme }) => theme.login};
   }
+  button {
+    background: ${({ theme }) => theme.button};
+  }
+  .blog-entry::before {
+    color: ${({ theme }) => theme.icon};
+  }
   `;

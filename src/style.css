@@ -33,7 +33,7 @@
     font-size: 26px;
   }
   button {
-    background: #333;
+    border: none;
     color: #f8e35a !important;
     font-size: 17px !important;
     font-weight: 700;

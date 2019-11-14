@@ -6,7 +6,9 @@ export const lightTheme = {
     toggleBorder: '#FFF',
     gradient: 'linear-gradient(#39598A, #79D7ED)',
     link: '#333',
-    login: '#fff'
+    login: '#fff',
+    button: '#333',
+    icon: '#f8e35a'
   }
   
   export const darkTheme = {
@@ -18,4 +20,6 @@ export const lightTheme = {
     gradient: 'linear-gradient(#091236, #1E215D)',
     link: '#f5f5f5',
     login: '#666',
+    button: 'rgb(75, 213, 238)',
+    icon: 'rgb(75, 213, 238)'
   }
