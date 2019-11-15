@@ -15,3 +15,21 @@ export const starshipQuery = gql`
       }
     }
 `;
+
+export const starshipsQuery = gql `
+  query Stats($starshipClass: String) {
+    allStarships(first: 20, filter: { starshipClass: $starshipClass }) {
+      totalCount
+      edges {
+        node {
+          cost
+          starshipClass
+          maxAtmosphericSpeed
+          crew
+          hyperdriveRating
+          maxMLPerHour
+        }
+      }
+    }
+  }
+`;

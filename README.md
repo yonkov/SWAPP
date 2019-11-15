@@ -32,6 +32,7 @@ If the user has been registered, he can see the following pages:
 + :/episodes/id, 
 + :/characters, 
 + :/characters/id
++ + :/starships/id
 
 ## UI/UX
 

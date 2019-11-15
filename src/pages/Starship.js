@@ -8,7 +8,7 @@ import RedirectToLogin from '../components/RedirectToLogin/RedirectToLogin';
 import Loading from '../components/Loading/Loading';
 
 const Starship = () => {
-    let { starshipId } = useParams() ;
+    const { starshipId } = useParams() ;
      
     const {data, loading, error} = useQuery(starshipQuery, {
         variables: {starshipId}
@@ -19,6 +19,7 @@ const Starship = () => {
 
 
     const {...starship} = data.starship;
+    
     
     return(
         <Box width={[400, 600]} mx="auto">

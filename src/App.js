@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import '../node_modules/react-vis/dist/style.css';
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "react-apollo";
 import { BrowserRouter } from 'react-router-dom';

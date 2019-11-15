@@ -121,3 +121,12 @@ a {
   margin: 0 auto;
   padding: 30px;
 }
+.starship-chart{
+  display: block;
+  margin: 30px auto;
+  overflow: unset;
+}
+
+.starship-chart svg{
+  overflow: visible;
+}
